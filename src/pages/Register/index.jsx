@@ -1,11 +1,11 @@
 import './style.css';
 
-function Help() {
+function SignUp() {
 	return (
 		<div className="App">
-			<h1>Help</h1>
+			<h1>SignUp</h1>
 		</div>
 	);
 }
 
-export default Help;
+export default SignUp;

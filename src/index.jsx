@@ -1,26 +1,32 @@
-import React from 'react';
+import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
 import './index.css';
 import {BrowserRouter, Route, Routes,} from "react-router-dom";
+
 import Layout from "./components/layout/layout";
 import reportWebVitals from './reportWebVitals';
 
 import Main from "./pages/Main";
 import Login from "./pages/Login";
-import Help from "./pages/Help";
+
+import ThemeProvider from "react-bootstrap/ThemeProvider";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM
 .createRoot(document.getElementById('root'))
 .render(
 	<React.StrictMode>
 		<BrowserRouter>
-			<Layout>
-				<Routes>
-					<Route path="/" element={<Main/>}/>
-					<Route path="help" element={<Help/>}/>
-					<Route path="login" element={<Login/>}/>
-				</Routes>
-			</Layout>
+			<ThemeProvider
+				breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
+			>
+				<Layout>
+					<Routes>
+						<Route path="/" element={<Main/>}/>
+						<Route path="login" element={<Login/>}/>
+					</Routes>
+				</Layout>
+			</ThemeProvider>
 		</BrowserRouter>
 	</React.StrictMode>
 );

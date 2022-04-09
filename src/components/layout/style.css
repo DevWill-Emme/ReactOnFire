@@ -46,15 +46,15 @@
 }
 
 .buttons button:hover {
-    background-color: rgb(250, 250, 250);
+    background-color: rgba(168, 35, 0, 0.75);
+    color: #ffffff;
     transition: 0.2s;
 }
 
 .buttons button:active {
-    background-color: rgb(243, 241, 241);
+    background-color: #a12701;
     transition: none;
 }
-
 
 .page {
     padding: 2rem 0;
