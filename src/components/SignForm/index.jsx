@@ -1,9 +1,23 @@
 import {useState} from "react";
-import {Button, Card, Form, Row} from "react-bootstrap";
+import {Button, Card, Col, Form, Row} from "react-bootstrap";
 
 
-export default function SForm({children, title = "hello", render = [], btnValue = "Submit"}) {
+const initialControl = {
+	label: "Label",
+	controlType: "text",
+	controlPlaceholder: "",
+	invalidFeedback: "That's not valid",
+	required: false
+}
 
+let center = "d-flex justify-content-center"
+
+export default function SForm({
+	                              children,
+	                              title = "hello",
+	                              renderControl = [initialControl],
+	                              btnValue = "Submit"
+                              }) {
 	const [validated, setValidated] = useState(false);
 
 	const handleSubmit = (event) => {
@@ -14,16 +28,30 @@ export default function SForm({children, title = "hello", render = [], btnValue 
 		}
 		setValidated(true);
 	};
-	console.log(render)
-	const renderRows = () => {
 
-		return (
-			<Row className={"d-flex justify-content-center"}>
-				<Form.Label defaultValue={"Test"}/>
-			</Row>
-		)
+	const renderRows = () => {
+		return renderControl.map((control, i) => {
+			const {label, controlPlaceholder, controlType, invalidFeedback, required} = control
+			return (
+				<>
+					<Row className="mb-3" key={i}>
+						<Form.Group as={Col}>
+							<Form.Label>{label}</Form.Label>
+							<Form.Control
+								type={controlType}
+								placeholder={controlPlaceholder}
+								required={required}
+							/>
+							<Form.Control.Feedback type="invalid">
+								{invalidFeedback}
+							</Form.Control.Feedback>
+						</Form.Group>
+					</Row>
+				</>
+			)
+		})
 	}
-	const center = "d-flex justify-content-center"
+
 
 	return (
 		<>
