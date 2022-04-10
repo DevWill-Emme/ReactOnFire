@@ -46,7 +46,7 @@ function SignUp() {
 							</Form.Group>
 						</Row>
 						<Row className="d-flex justify-content-center">
-							<Button className="mt-3 w-25" type="submit">Sign Up</Button>
+							<Button className="w-auto mt-3 btn" type="submit">Sign Up</Button>
 						</Row>
 					</Form>
 				</Card>
