@@ -19,6 +19,9 @@ function Login() {
 			<Row className="position-fixed top-50 translate-middle-y">
 				<Card className="w-auto p-4 shadow" style={{borderRadius: "1.5rem"}}>
 					<Form noValidate validated={validated} onSubmit={handleSubmit}>
+						<Row className={"text-center m-3"}>
+							<h1>Sign In</h1>
+						</Row>
 						<Row className="mb-3">
 							<Form.Group as={Col}>
 								<Form.Label>Email Address</Form.Label>
