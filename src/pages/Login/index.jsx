@@ -1,10 +1,11 @@
 import './style.css';
+import {Container} from "react-bootstrap";
 
 function Login() {
 	return (
-		<div className="App">
-			<h1>Login</h1>
-		</div>
+		<Container>
+
+		</Container>
 	);
 }
 
