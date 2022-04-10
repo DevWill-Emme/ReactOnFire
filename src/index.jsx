@@ -8,9 +8,11 @@ import reportWebVitals from './reportWebVitals';
 
 import Main from "./pages/Main";
 import Login from "./pages/Login";
+import SignUp from "./pages/Register";
 
 import ThemeProvider from "react-bootstrap/ThemeProvider";
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 ReactDOM
 .createRoot(document.getElementById('root'))
@@ -22,6 +24,7 @@ ReactDOM
 					<Routes>
 						<Route path="/" element={<Main/>}/>
 						<Route path="login" element={<Login/>}/>
+						<Route path="signup" element={<SignUp/>}/>
 					</Routes>
 				</Layout>
 			</ThemeProvider>
