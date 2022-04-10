@@ -1,55 +1,28 @@
-import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
-import {useState} from "react";
+import {Container, Row} from "react-bootstrap";
+import SForm from "../../components/SignForm";
 
 function SignUp() {
-	const [validated, setValidated] = useState(false);
-
-	const handleSubmit = (event) => {
-		const form = event.currentTarget;
-		if (form.checkValidity() === false) {
-			event.preventDefault();
-			event.stopPropagation();
+	const formRender = [
+		{
+			label: "Email Address",
+			controlType: "email",
+			controlPlaceholder: "Enter Email",
+			invalidFeedback: "Please provide a valid email address",
+			required: true
+		},
+		{
+			label: "Password",
+			controlType: "password",
+			controlPlaceholder: "Enter Password",
+			invalidFeedback: "Password's invalid",
+			required: true
 		}
-		setValidated(true);
-	};
+	]
 
 	return (
 		<Container fluid className="d-flex justify-content-center">
 			<Row className="position-fixed top-50 translate-middle-y" style={{width: "35%"}}>
-				<Card className="p-4 shadow" style={{borderRadius: "1.5rem"}}>
-					<Form noValidate validated={validated} onSubmit={handleSubmit}>
-						<Row className={"text-center m-3"}>
-							<h1>Sign Up</h1>
-						</Row>
-						<Row className="mb-3">
-							<Form.Group as={Col}>
-								<Form.Label>Email Address</Form.Label>
-								<Form.Control
-									type="email"
-									placeholder="Email Address"
-									required
-								/>
-								<Form.Control.Feedback type="invalid">
-									Please provide a valid email address
-								</Form.Control.Feedback>
-							</Form.Group>
-						</Row>
-						<Row>
-							<Form.Group as={Col}>
-								<Form.Label>Password</Form.Label>
-								<Form.Control
-									required
-									type="password"
-									placeholder="Password"
-								/>
-								<Form.Control.Feedback type="invalid">Password's invalid</Form.Control.Feedback>
-							</Form.Group>
-						</Row>
-						<Row className="d-flex justify-content-center">
-							<Button className="w-auto mt-3 btn" type="submit">Sign Up</Button>
-						</Row>
-					</Form>
-				</Card>
+				<SForm title={"Sign Up"} btnValue={"SignUp"} renderControl={formRender}/>
 			</Row>
 		</Container>
 	);
