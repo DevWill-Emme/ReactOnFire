@@ -17,7 +17,7 @@ function SignUp() {
 	return (
 		<Container className="d-flex justify-content-center position-fixed top-50 translate-middle-y">
 			<Card
-				className="w-50 p-4"
+				className="p-4 shadow"
 				style={{borderRadius: "1.5rem"}}>
 				<Form
 					noValidate
@@ -49,7 +49,7 @@ function SignUp() {
 							</Form.Control.Feedback>
 						</Form.Group>
 					</Row>
-					<Row>
+					<Row className={"d-flex justify-content-center"}>
 						<Button
 							className="mt-3 w-50"
 							type={"submit"}
