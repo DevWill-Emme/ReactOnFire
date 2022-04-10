@@ -15,7 +15,7 @@ function SignUp() {
 	};
 
 	return (
-		<Container className="d-flex justify-content-center position-fixed top-50 translate-middle-y">
+		<Container fluid className="d-flex justify-content-center position-fixed top-50 translate-middle-y">
 			<Card
 				className="p-4 shadow"
 				style={{borderRadius: "1.5rem"}}>
