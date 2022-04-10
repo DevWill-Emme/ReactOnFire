@@ -23,7 +23,7 @@ function SignUp() {
 					noValidate
 					validated={validated}
 					onSubmit={handleSubmit}>
-					<Row>
+					<Row className={"mb-3"}>
 						<Form.Group>
 							<Form.Label>Email Address</Form.Label>
 							<Form.Control
@@ -55,7 +55,7 @@ function SignUp() {
 							type={"submit"}
 							variant={"primary"}
 						>
-							Submit
+							Sign Up
 						</Button>
 					</Row>
 				</Form>
