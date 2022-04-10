@@ -1,4 +1,3 @@
-import './style.css';
 import {Button, Card, Col, Container, Form, Row} from "react-bootstrap";
 import {useState} from "react";
 
