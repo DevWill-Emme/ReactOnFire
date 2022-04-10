@@ -16,8 +16,8 @@ function SignUp() {
 
 	return (
 		<Container fluid className="d-flex justify-content-center">
-			<Row className="position-fixed top-50 translate-middle-y">
-				<Card className="w-auto p-4 shadow" style={{borderRadius: "1.5rem"}}>
+			<Row className="position-fixed top-50 translate-middle-y" style={{width: "35%"}}>
+				<Card className="p-4 shadow" style={{borderRadius: "1.5rem"}}>
 					<Form noValidate validated={validated} onSubmit={handleSubmit}>
 						<Row className={"text-center m-3"}>
 							<h1>Sign Up</h1>
@@ -47,7 +47,7 @@ function SignUp() {
 							</Form.Group>
 						</Row>
 						<Row className="d-flex justify-content-center">
-							<Button className="mt-3 w-50" type="submit">Sign Up</Button>
+							<Button className="mt-3 w-25" type="submit">Sign Up</Button>
 						</Row>
 					</Form>
 				</Card>
