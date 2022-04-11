@@ -2,14 +2,16 @@ import {Container, Row} from "react-bootstrap";
 import SForm from "../../components/SignForm";
 import handleAuth from "../../actions/hendleAuth";
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 function SignUp() {
 	const [email, setEmail] = useState(false)
 	const [pass, setPass] = useState(false)
+	const redirect = useNavigate()
 	
 	const handleSubmit = {
-		dataToSubmit: {email, pass, action: 'createUser'},
-		action: handleAuth
+		dataToSubmit: {email, pass, actions: 'createUser'},
+		action: {handleAuth, redirect}
 	}
 	
 	const formRender = [

@@ -13,7 +13,9 @@ import Test from "./pages/Test";
 import ThemeProvider from "react-bootstrap/ThemeProvider";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-//initialize Firebase
+// Initialize Firebase
+// noinspection ES6UnusedImports
+import firebase from "./firebase-config";
 
 ReactDOM
 .createRoot(document.getElementById('root'))
