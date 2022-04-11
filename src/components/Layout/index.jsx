@@ -21,7 +21,7 @@ export default function Layout({children}) {
 								</NavDropdown>
 							</Nav>
 							<Nav>
-								<Nav.Link className={'log in'} as={Link} to={'/'}>Log Out</Nav.Link>
+								<Nav.Link className={'log in'} as={Link} id={'logOut'} to={'/'}>Log Out</Nav.Link>
 								<Nav.Link className={'log Out'} as={Link} to={'login'}>Log In</Nav.Link>
 								<Nav.Link className={'log Out'} as={Link} to={'SignUp'}>Sign Up</Nav.Link>
 							</Nav>

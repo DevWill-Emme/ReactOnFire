@@ -1,10 +1,15 @@
-import {getAuth, onAuthStateChanged} from "firebase/auth";
+import {getAuth, onAuthStateChanged, signOut} from "firebase/auth";
 
 const auth = getAuth()
 
 export default function TrackAuth() {
 	const logIn = document.querySelectorAll('.in');
-	const logOut = document.querySelectorAll('.out')
+	const logOut = document.querySelectorAll('.Out')
+	
+	const logOutLink = document.querySelector('#logOut')
+	logOutLink.addEventListener('click', () => {
+		signOut(auth)
+	})
 	
 	onAuthStateChanged(auth, (user) => {
 		if (user) {
