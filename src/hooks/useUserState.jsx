@@ -1,15 +1,13 @@
-import {useState} from "react"
+import {useEffect, useState} from "react"
 
-function useUserState(texto) {
-	const [state, setState] = useState();
+export default function useUserState(setUserState = false) {
+	const [user, setUser] = useState('hola');
 	
-	function dispatch() {
-		setState({texto});
-	}
+	useEffect(() => {
+		if (setUserState) {
+			setUser(setUserState)
+		}
+	})
 	
-	return [state, dispatch];
+	return user;
 }
-
-function
-
-export default useUserState
