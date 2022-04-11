@@ -16,7 +16,8 @@ export default function SForm({
 	                              children,
 	                              title = "hello",
 	                              renderControl = [initialControl],
-	                              btnValue = "Submit"
+	                              btnValue = "Submit",
+	                              inputID = ''
                               }) {
 	const [validated, setValidated] = useState(false);
 
@@ -33,21 +34,20 @@ export default function SForm({
 		return renderControl.map((control, i) => {
 			const {label, controlPlaceholder, controlType, invalidFeedback, required} = control
 			return (
-				<>
-					<Row className="mb-3" key={i}>
-						<Form.Group as={Col}>
-							<Form.Label>{label}</Form.Label>
-							<Form.Control
-								type={controlType}
-								placeholder={controlPlaceholder}
-								required={required}
-							/>
-							<Form.Control.Feedback type="invalid">
-								{invalidFeedback}
-							</Form.Control.Feedback>
-						</Form.Group>
-					</Row>
-				</>
+				<Row className="mb-3" key={`${inputID}${i}`}>
+					<Form.Group as={Col}>
+						<Form.Label>{label}</Form.Label>
+						<Form.Control
+							type={controlType}
+							placeholder={controlPlaceholder}
+							required={required}
+							id={`${controlType}-${inputID}`}
+						/>
+						<Form.Control.Feedback type="invalid">
+							{invalidFeedback}
+						</Form.Control.Feedback>
+					</Form.Group>
+				</Row>
 			)
 		})
 	}
