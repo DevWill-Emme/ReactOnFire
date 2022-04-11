@@ -40,6 +40,7 @@ export default function SForm({
 		if (form.checkValidity()) {
 			actions(dataToSubmit)
 			.then((res) => {
+				console.log(res)
 				if (res) {
 					return redirect('/')
 				}
