@@ -1,13 +1,15 @@
 import {useState} from "react"
 
-function useRoute(texto) {
+function useUserState(texto) {
 	const [state, setState] = useState();
-
+	
 	function dispatch() {
 		setState({texto});
 	}
-
+	
 	return [state, dispatch];
 }
 
-export default useRoute
+function
+
+export default useUserState

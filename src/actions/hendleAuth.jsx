@@ -1,29 +1,29 @@
-import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword} from 'firebase/auth'
+import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword} from 'firebase/auth'
 
-const handleAuth = async ({email, pass, action}) => {
+const handleAuth = async ({email, pass, actions}) => {
 	const auth = getAuth()
 	
-	onAuthStateChanged(auth, (user) => {
+	/*onAuthStateChanged(auth, (user) => {
 		if (user) {
 			console.log(user, 'log in')
 		} else {
 			console.log(user, 'log out')
 		}
-	});
+	});*/
 	
-	if (action === 'createUser') {
-		createUserWithEmailAndPassword(auth, email, pass)
+	if (actions === 'createUser') {
+		await createUserWithEmailAndPassword(auth, email, pass)
 		.then((userCredential) => {
-			//console.log(userCredential.user);
+			return userCredential
 		})
 		.catch((error) => {
-			console.log(error.code);
-			console.log(error.message);
+			console.log([error.code, error.message])
+			return "hole";
 		});
 	} else {
-		signInWithEmailAndPassword(auth, email, pass)
+		await signInWithEmailAndPassword(auth, email, pass)
 		.then((userCredential) => {
-			//console.log(userCredential.user);
+			return userCredential
 		})
 		.catch((error) => {
 			console.log(error.code);

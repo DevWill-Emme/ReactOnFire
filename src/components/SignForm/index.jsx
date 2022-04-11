@@ -1,5 +1,7 @@
 import {useState} from "react";
 import {Button, Card, Col, Form, Row} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
+
 
 const initialControl = {
 	label: "Label",
@@ -19,23 +21,32 @@ export default function SForm({
 	                              renderControl = [initialControl],
 	                              btnValue = "Submit",
 	                              actionSubmit = {
-		                              actions: {},
+		                              actions: async () => {
+		                              },
 		                              dataToSubmit: {}
 	                              },
 	                              inputID = '',
                               }) {
 	const [validated, setValidated] = useState(false);
+	const redirect = useNavigate()
 	
 	const handleSubmit = (event) => {
 		const {actions, dataToSubmit} = actionSubmit
-		console.log(actions, dataToSubmit)
 		
 		const form = event.currentTarget;
 		event.preventDefault();
 		event.stopPropagation();
+		
 		if (form.checkValidity()) {
-			//action(dataToSubmit)
-			return actions.redirect('/')
+			actions(dataToSubmit)
+			.then((res) => {
+				if (res) {
+					return redirect('/')
+				}
+			})
+			.catch((err) => {
+				console.log(err)
+			})
 		}
 		setValidated(true);
 	};
