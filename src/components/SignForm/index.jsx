@@ -35,7 +35,7 @@ export default function SForm({
 		event.stopPropagation();
 		if (form.checkValidity()) {
 			//action(dataToSubmit)
-			return redirect('/')
+			return actions.redirect('/')
 		}
 		setValidated(true);
 	};
