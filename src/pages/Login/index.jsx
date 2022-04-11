@@ -20,8 +20,8 @@ function Login() {
 	]
 
 	return (
-		<Container fluid className="d-flex justify-content-center">
-			<Row className="position-fixed top-50 translate-middle-y" style={{width: "35%"}}>
+		<Container fluid className="d-flex justify-content-center position-relative top-50">
+			<Row style={{width: "35rem"}}>
 				<SForm title={"Sign In"} renderControl={formRender} btnValue={"SignIn"}/>
 			</Row>
 		</Container>
