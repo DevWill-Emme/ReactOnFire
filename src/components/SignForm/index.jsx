@@ -19,17 +19,23 @@ export default function SForm({
 	                              title = "hello",
 	                              renderControl = [initialControl],
 	                              btnValue = "Submit",
+	                              actionSubmit,
 	                              inputID = '',
                               }) {
 	const [validated, setValidated] = useState(false);
 	
-	console.log(renderControl[0].getInputValue)
-	
 	const handleSubmit = (event) => {
 		const form = event.currentTarget;
+		event.preventDefault();
+		let Bypass;
 		if (form.checkValidity() === false) {
-			event.preventDefault();
 			event.stopPropagation();
+			Bypass = true
+		}
+		if (Bypass) {
+			console.log('can not handleSubmit')
+		} else {
+			console.log('handleSubmit')
 		}
 		setValidated(true);
 	};
