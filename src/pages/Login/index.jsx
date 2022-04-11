@@ -22,7 +22,7 @@ function Login() {
 	return (
 		<Container fluid className="d-flex justify-content-center position-relative top-50">
 			<Row style={{width: "35rem"}}>
-				<SForm title={"Sign In"} renderControl={formRender} btnValue={"SignIn"}/>
+				<SForm title={"Sign In"} renderControl={formRender} btnValue={"SignIn"} inputID={'login'}/>
 			</Row>
 		</Container>
 	);
