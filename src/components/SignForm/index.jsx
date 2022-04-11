@@ -19,8 +19,7 @@ export default function SForm({
 	                              renderControl = [initialControl],
 	                              btnValue = "Submit",
 	                              actionSubmit = {
-		                              action: () => {
-		                              },
+		                              actions: {},
 		                              dataToSubmit: {}
 	                              },
 	                              inputID = '',
@@ -28,13 +27,14 @@ export default function SForm({
 	const [validated, setValidated] = useState(false);
 	
 	const handleSubmit = (event) => {
-		const {action, dataToSubmit} = actionSubmit
+		const {actions, dataToSubmit} = actionSubmit
+		console.log(actions, dataToSubmit)
 		
 		const form = event.currentTarget;
 		event.preventDefault();
 		event.stopPropagation();
 		if (form.checkValidity()) {
-			action(dataToSubmit)
+			//action(dataToSubmit)
 			return redirect('/')
 		}
 		setValidated(true);

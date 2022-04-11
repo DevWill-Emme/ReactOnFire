@@ -11,7 +11,7 @@ function SignUp() {
 	
 	const handleSubmit = {
 		dataToSubmit: {email, pass, actions: 'createUser'},
-		action: {handleAuth, redirect}
+		actions: {handleAuth, redirect}
 	}
 	
 	const formRender = [
