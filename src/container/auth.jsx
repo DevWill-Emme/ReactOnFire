@@ -8,9 +8,11 @@ export default function TrackAuth() {
 	
 	onAuthStateChanged(auth, (user) => {
 		if (user) {
-			console.log(logIn)
+			logIn.forEach(item => item.style.display = 'block')
+			logOut.forEach(item => item.style.display = 'none')
 		} else {
-			console.log(logOut)
+			logIn.forEach(item => item.style.display = 'none')
+			logOut.forEach(item => item.style.display = 'block')
 		}
 	});
 }
