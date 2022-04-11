@@ -1,12 +1,16 @@
 import {Container, Row} from "react-bootstrap";
 import SForm from "../../components/SignForm";
+import handleAuth from "../../actions/hendleAuth";
 import {useState} from "react";
 
 function SignUp() {
 	const [email, setEmail] = useState(false)
 	const [pass, setPass] = useState(false)
 	
-	console.log(email, pass)
+	const handleSubmit = {
+		dataToSubmit: {email, pass},
+		action: handleAuth
+	}
 	
 	const formRender = [
 		{
@@ -30,7 +34,12 @@ function SignUp() {
 	return (
 		<Container fluid className="d-flex justify-content-center position-relative top-50">
 			<Row style={{width: "35rem"}}>
-				<SForm title={"Sign Up"} btnValue={"SignUp"} renderControl={formRender} inputID={'signup'}/>
+				<SForm
+					title={"Sign Up"}
+					btnValue={"SignUp"}
+					renderControl={formRender}
+					actionSubmit={handleSubmit}
+					inputID={'signup'}/>
 			</Row>
 		</Container>
 	);
