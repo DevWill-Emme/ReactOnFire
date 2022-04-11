@@ -14,7 +14,7 @@ export default function Layout({children}) {
 							<Nav className="me-auto">
 								<Nav.Link as={Link} to={'/test'}>TestComponents</Nav.Link>
 								<Nav.Link className={'log in'} as={Link} to={'/'}>Pricing</Nav.Link>
-								<NavDropdown className={'log in'} title="Dropdown" id="collasible-nav-dropdown">
+								<NavDropdown className={'log Out'} title="Dropdown" id="collasible-nav-dropdown">
 									<NavDropdown.Item as={Link} to={'/'}>Action</NavDropdown.Item>
 									<NavDropdown.Item as={Link} to={'/'}>Another action</NavDropdown.Item>
 									<NavDropdown.Item as={Link} to={'/'}>Something</NavDropdown.Item>

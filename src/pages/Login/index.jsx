@@ -1,13 +1,24 @@
 import {Container, Row} from "react-bootstrap";
 import SForm from "../../components/SignForm";
+import {useState} from "react";
+import handleAuth from "../../actions/hendleAuth";
 
 function Login() {
+	const [email, setEmail] = useState(false)
+	const [pass, setPass] = useState(false)
+	
+	const handleSubmit = {
+		dataToSubmit: {email, pass},
+		actions: handleAuth
+	}
+	
 	const formRender = [
 		{
 			label: "Email Address",
 			controlType: "email",
 			controlPlaceholder: "Enter Email",
 			invalidFeedback: "Please provide a valid email address",
+			getInputValue: setEmail,
 			required: true
 		},
 		{
@@ -15,6 +26,7 @@ function Login() {
 			controlType: "password",
 			controlPlaceholder: "Enter Password",
 			invalidFeedback: "Password's invalid",
+			getInputValue: setPass,
 			required: true
 		}
 	]
@@ -22,7 +34,12 @@ function Login() {
 	return (
 		<Container fluid className="d-flex justify-content-center position-relative top-50">
 			<Row style={{width: "35rem"}}>
-				<SForm title={"Sign In"} renderControl={formRender} btnValue={"SignIn"} inputID={'login'}/>
+				<SForm
+					title={"Sign In"}
+					btnValue={"SignIn"}
+					renderControl={formRender}
+					actionSubmit={handleSubmit}
+					inputID={'login'}/>
 			</Row>
 		</Container>
 	);
