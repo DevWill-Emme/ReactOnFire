@@ -1,11 +1,12 @@
-import {getAuth} from 'firebase/auth'
+import {createUserWithEmailAndPassword, getAuth} from 'firebase/auth'
 
 const handleAuth = ({email, pass, action}) => {
 	const auth = getAuth()
 	
 	if (action === 'createUser') {
-		console.log(action, email, pass)
-		//createUserWithEmailAndPassword(auth, email, pass).then( cred => {})
+		createUserWithEmailAndPassword(auth, email, pass).then(cred => {
+			console.log(cred)
+		})
 	} else {
 		//signInWithEmailAndPassword(auth, email, pass)
 	}
