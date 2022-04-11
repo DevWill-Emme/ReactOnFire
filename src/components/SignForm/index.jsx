@@ -7,6 +7,8 @@ const initialControl = {
 	controlType: "text",
 	controlPlaceholder: "",
 	invalidFeedback: "That's not valid",
+	getInputValue: function () {
+	},
 	required: false
 }
 
@@ -17,10 +19,12 @@ export default function SForm({
 	                              title = "hello",
 	                              renderControl = [initialControl],
 	                              btnValue = "Submit",
-	                              inputID = ''
+	                              inputID = '',
                               }) {
 	const [validated, setValidated] = useState(false);
-
+	
+	console.log(renderControl[0].getInputValue)
+	
 	const handleSubmit = (event) => {
 		const form = event.currentTarget;
 		if (form.checkValidity() === false) {
@@ -29,10 +33,10 @@ export default function SForm({
 		}
 		setValidated(true);
 	};
-
+	
 	const renderRows = () => {
 		return renderControl.map((control, i) => {
-			const {label, controlPlaceholder, controlType, invalidFeedback, required} = control
+			const {label, controlPlaceholder, controlType, invalidFeedback, required, getInputValue} = control
 			return (
 				<Row className="mb-3" key={`${inputID}${i}`}>
 					<Form.Group as={Col}>
@@ -42,6 +46,7 @@ export default function SForm({
 							placeholder={controlPlaceholder}
 							required={required}
 							id={`${controlType}-${inputID}`}
+							onChange={(e) => getInputValue(e.currentTarget.value)}
 						/>
 						<Form.Control.Feedback type="invalid">
 							{invalidFeedback}

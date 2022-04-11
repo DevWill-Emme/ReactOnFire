@@ -1,13 +1,20 @@
 import {Container, Row} from "react-bootstrap";
 import SForm from "../../components/SignForm";
+import {useState} from "react";
 
 function SignUp() {
+	const [email, setEmail] = useState(false)
+	const [pass, setPass] = useState(false)
+	
+	console.log(email, pass)
+	
 	const formRender = [
 		{
 			label: "Email Address",
 			controlType: "email",
 			controlPlaceholder: "Enter Email",
 			invalidFeedback: "Please provide a valid email address",
+			getInputValue: setEmail,
 			required: true
 		},
 		{
@@ -15,6 +22,7 @@ function SignUp() {
 			controlType: "password",
 			controlPlaceholder: "Enter Password",
 			invalidFeedback: "Password's invalid",
+			getInputValue: setPass,
 			required: true
 		}
 	]
