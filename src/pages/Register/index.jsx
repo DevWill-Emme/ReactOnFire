@@ -8,7 +8,7 @@ function SignUp() {
 	const [pass, setPass] = useState(false)
 	
 	const handleSubmit = {
-		dataToSubmit: {email, pass},
+		dataToSubmit: {email, pass, action: 'createUser'},
 		action: handleAuth
 	}
 	

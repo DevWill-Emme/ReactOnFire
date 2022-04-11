@@ -1,6 +1,6 @@
 import {getAuth} from 'firebase/auth'
 
-const handleAuth = ({email, pass}, action) => {
+const handleAuth = ({email, pass, action}) => {
 	const auth = getAuth()
 	
 	if (action === 'createUser') {
