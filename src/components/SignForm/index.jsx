@@ -1,5 +1,6 @@
-import {useState} from "react";
 import {Button, Card, Col, Form, Row} from "react-bootstrap";
+//Hooks
+import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 
 const initialControl = {
@@ -45,7 +46,32 @@ export default function SForm({
 			})
 		}
 		setValidated(true);
-	};
+	}
+	
+	const handleValidateInput = event => {
+	
+	}
+	
+	useEffect(() => {
+		const emailInput = document.querySelectorAll('[type=email]')
+		if (emailInput.length) {
+			emailInput.forEach(item => item.addEventListener(
+				'input',
+				() => {
+					console.log(item.validity.valid)
+				})
+			)
+		}
+		const passwordInput = document.querySelectorAll('[type=password]')
+		if (passwordInput.length) {
+			passwordInput.forEach(item => item.addEventListener(
+				'input',
+				() => {
+					console.log(item)
+				})
+			)
+		}
+	})
 	
 	const renderRows = () => {
 		return renderControl.map((control, i) => {
@@ -58,7 +84,7 @@ export default function SForm({
 							type={controlType}
 							placeholder={controlPlaceholder}
 							required={required}
-							id={`${controlType}-${inputID}`}
+							id={`${i}-${inputID}`}
 							onChange={(e) => getInputValue(e.currentTarget.value)}
 						/>
 						<Form.Control.Feedback type="invalid">
