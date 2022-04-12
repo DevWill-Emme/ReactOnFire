@@ -1,27 +1,14 @@
 import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword,} from 'firebase/auth'
 
-const handleAuth = async ({email, pass, actions}) => {
+const handleAuth = async ({email, pass, actions}, response) => {
 	const auth = getAuth()
-	
+	let user;
 	if (actions === 'createUser') {
-		await createUserWithEmailAndPassword(auth, email, pass)
-		.then((userCredential) => {
-			return userCredential
-		})
-		.catch((error) => {
-			console.log([error.code, error.message])
-			return "hole";
-		});
+		user = await createUserWithEmailAndPassword(auth, email, pass)
 	} else {
-		await signInWithEmailAndPassword(auth, email, pass)
-		.then((userCredential) => {
-			return userCredential
-		})
-		.catch((error) => {
-			console.log(error.code);
-			console.log(error.message);
-		});
+		user = await signInWithEmailAndPassword(auth, email, pass)
 	}
+	return user
 }
 
 export default handleAuth;
