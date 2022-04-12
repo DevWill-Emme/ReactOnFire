@@ -22,7 +22,7 @@ export const removeClassName = (element, oddName) => {
 export const handleValidateInput = element => {
 	switch (element.type) {
 		case "email":
-			element.setAttribute("pattern", "")
+			element.setAttribute("pattern", "[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$")
 			return;
 		case "password":
 			element.setAttribute("minlength", 6)

@@ -2,8 +2,8 @@ import {Button, Card, Col, Form, Row} from "react-bootstrap";
 //Hooks
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
+
 import {handleValidateInput} from "../../utils";
-import "./style.css"
 
 const initialControl = {
 	label: "Label",
