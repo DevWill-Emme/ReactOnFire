@@ -2,6 +2,8 @@ import {Button, Card, Col, Form, Row} from "react-bootstrap";
 //Hooks
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {handleValidateInput} from "../../utils";
+import "./style.css"
 
 const initialControl = {
 	label: "Label",
@@ -48,28 +50,21 @@ export default function SForm({
 		setValidated(true);
 	}
 	
-	const handleValidateInput = event => {
-	
-	}
-	
 	useEffect(() => {
 		const emailInput = document.querySelectorAll('[type=email]')
-		if (emailInput.length) {
-			emailInput.forEach(item => item.addEventListener(
-				'input',
-				() => {
-					console.log(item.validity.valid)
-				})
-			)
-		}
 		const passwordInput = document.querySelectorAll('[type=password]')
+		
+		if (emailInput.length) {
+			emailInput.forEach(item => {
+				handleValidateInput(item)
+				console.log(item.className)
+			})
+		}
 		if (passwordInput.length) {
-			passwordInput.forEach(item => item.addEventListener(
-				'input',
-				() => {
-					console.log(item)
-				})
-			)
+			passwordInput.forEach(item => {
+				handleValidateInput(item)
+				console.log(item.className)
+			})
 		}
 	})
 	
