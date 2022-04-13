@@ -1,4 +1,10 @@
-import {createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword} from 'firebase/auth'
+import {
+	createUserWithEmailAndPassword,
+	getAuth,
+	GoogleAuthProvider,
+	signInWithEmailAndPassword,
+	signInWithPopup
+} from 'firebase/auth'
 
 export const handleAuth = async ({email, pass, actions}) => {
 	const auth = getAuth()
@@ -25,7 +31,15 @@ export const handleAuth = async ({email, pass, actions}) => {
 }
 export const handleGoogleAuth = () => {
 	const auth = getAuth()
+	auth.useDeviceLanguage()
 	const provider = new GoogleAuthProvider()
 	
+	signInWithPopup(auth, provider)
+	.then((result) => {
+		const credential = GoogleAuthProvider.credentialFromResult(result);
+		const token = credential.accessToken;
+		const user = result.user;
+		console.log(token, "   ", user)
+	})
 }
 
