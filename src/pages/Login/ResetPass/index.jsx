@@ -29,7 +29,7 @@ export default function ResetPass() {
 					btnValue={"Send Email"}
 					renderControl={formRender}
 					actionSubmit={handleSubmit}
-					inputID={'reset_password'}/>
+					inputID={'emailReset'}/>
 			</Row>
 		</Container>
 	)
