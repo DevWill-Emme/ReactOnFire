@@ -6,6 +6,11 @@ import {handleResetPasswordEmail} from "../../../actions/hendleAuth";
 export default function ResetPass() {
 	const [email, setEmail] = useState(false)
 	
+	const handleSubmit = {
+		dataToSubmit: {email},
+		actions: handleResetPasswordEmail
+	}
+	
 	const formRender = [
 		{
 			label: "Please provide an email address",
@@ -23,7 +28,7 @@ export default function ResetPass() {
 				<SForm
 					btnValue={"Send Email"}
 					renderControl={formRender}
-					actionSubmit={handleResetPasswordEmail}
+					actionSubmit={handleSubmit}
 					inputID={'reset_password'}/>
 			</Row>
 		</Container>

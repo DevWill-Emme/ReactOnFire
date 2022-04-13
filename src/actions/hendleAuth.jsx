@@ -41,13 +41,11 @@ export const handleGoogleAuth = async () => {
 		console.log(error.code, " ", error.message, " ", error.email, " ", GoogleAuthProvider.credentialFromError(error))
 	})
 }
-export const handleResetPasswordEmail = async (email) => {
+export const handleResetPasswordEmail = async ({email}) => {
 	const auth = getAuth();
 	sendPasswordResetEmail(auth, email)
-	.then()
-	.catch((error) => {
+	.then().catch((error) => {
 		console.log(error.code, error.message)
-		// ..
 	});
 }
 
