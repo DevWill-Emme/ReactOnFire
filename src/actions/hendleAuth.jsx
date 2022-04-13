@@ -29,17 +29,19 @@ export const handleAuth = async ({email, pass, actions}) => {
 	}
 	return user
 }
-export const handleGoogleAuth = () => {
+export const handleGoogleAuth = async () => {
 	const auth = getAuth()
 	auth.useDeviceLanguage()
 	const provider = new GoogleAuthProvider()
 	
-	signInWithPopup(auth, provider)
+	return await signInWithPopup(auth, provider)
 	.then((result) => {
 		const credential = GoogleAuthProvider.credentialFromResult(result);
 		const token = credential.accessToken;
 		const user = result.user;
 		console.log(token, "   ", user)
+		
+		return [token, user]
 	})
 }
 

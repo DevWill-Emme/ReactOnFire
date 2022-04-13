@@ -1,6 +1,6 @@
 import {Button, Container, Row} from "react-bootstrap";
 import SForm from "../../components/SignForm";
-import {handleAuth} from "../../actions/hendleAuth";
+import {handleAuth, handleGoogleAuth} from "../../actions/hendleAuth";
 import {useState} from "react";
 
 function SignUp() {
@@ -44,9 +44,7 @@ function SignUp() {
 					<div className='d-flex justify-content-center pt-3'>
 						<Button
 							variant={"outline-primary"}
-							onClick={() => {
-								console.log("hola munno")
-							}}
+							onClick={handleGoogleAuth}
 						>SignUp with Google</Button>
 					</div>
 				</SForm>
