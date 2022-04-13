@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import SignUp from "../pages/Register";
 import Test from "../pages/Test";
 import Layout from "../components/Layout";
+import AuthEmail from "../pages/AuthEmail";
 
 
 export default function AppRouter() {
@@ -19,6 +20,7 @@ export default function AppRouter() {
 						<Route path="login" element={<Login/>}/>
 						<Route path="signup" element={<SignUp/>}/>
 						<Route path="test" element={<Test/>}/>
+						<Route path="auth_email" element={<AuthEmail/>}/>
 					</Routes>
 				</Layout>
 			</BrowserRouter>

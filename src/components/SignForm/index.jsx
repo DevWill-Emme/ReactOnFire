@@ -28,6 +28,7 @@ export default function SForm({
 		                              dataToSubmit: {}
 	                              },
 	                              inputID = '',
+											redirectionTo = '/'
                               }) {
 	const [validated, setValidated] = useState(false);
 	const redirect = useNavigate()
@@ -43,7 +44,7 @@ export default function SForm({
 			await actions(dataToSubmit)
 			.then(res => {
 				if (res) {
-					return redirect('/')
+					return redirect(redirectionTo)
 				}
 			})
 		}
@@ -57,13 +58,11 @@ export default function SForm({
 		if (emailInput.length) {
 			emailInput.forEach(item => {
 				handleValidateInput(item)
-				console.log(item.className)
 			})
 		}
 		if (passwordInput.length) {
 			passwordInput.forEach(item => {
 				handleValidateInput(item)
-				console.log(item.className)
 			})
 		}
 	})

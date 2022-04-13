@@ -1,6 +1,6 @@
 // my very own functions
 
-export function addClassName(element, newName) {
+export const addClassName = (element, newName) => {
 	const classNames = element.className.split(' ')
 	if (!classNames.includes(newName)) {
 		return element.className += " " + newName

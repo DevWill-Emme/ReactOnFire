@@ -25,7 +25,7 @@ function SignUp() {
 			label: "Password",
 			controlType: "password",
 			controlPlaceholder: "Enter Password",
-			invalidFeedback: "Password's invalid",
+			invalidFeedback: "Password's invalid: make sure it's greater than 6 characters",
 			getInputValue: setPass,
 			required: true
 		}
@@ -39,6 +39,7 @@ function SignUp() {
 					btnValue={"SignUp"}
 					renderControl={formRender}
 					actionSubmit={handleSubmit}
+					redirectionTo={'/auth_email'}
 					inputID={'signup'}/>
 			</Row>
 		</Container>
