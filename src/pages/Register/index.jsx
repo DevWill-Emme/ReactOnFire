@@ -1,4 +1,4 @@
-import {Container, Row} from "react-bootstrap";
+import {Button, Container, Row} from "react-bootstrap";
 import SForm from "../../components/SignForm";
 import handleAuth from "../../actions/hendleAuth";
 import {useState} from "react";
@@ -40,7 +40,13 @@ function SignUp() {
 					renderControl={formRender}
 					actionSubmit={handleSubmit}
 					redirectionTo={'/auth_email'}
-					inputID={'signup'}/>
+					inputID={'signup'}>
+					<div className='d-flex justify-content-center pt-3'>
+						<Button
+							variant={"outline-primary"}
+						>SignUp with Google</Button>
+					</div>
+				</SForm>
 			</Row>
 		</Container>
 	);
