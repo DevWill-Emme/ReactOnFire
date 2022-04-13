@@ -1,7 +1,7 @@
 import {Container, Row} from "react-bootstrap";
 import SForm from "../../components/SignForm";
 import {useState} from "react";
-import handleAuth from "../../actions/hendleAuth";
+import {handleAuth} from "../../actions/hendleAuth";
 
 function Login() {
 	const [email, setEmail] = useState(false)

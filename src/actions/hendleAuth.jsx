@@ -1,4 +1,4 @@
-import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword,} from 'firebase/auth'
+import {createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithEmailAndPassword} from 'firebase/auth'
 
 export const handleAuth = async ({email, pass, actions}) => {
 	const auth = getAuth()
@@ -23,5 +23,9 @@ export const handleAuth = async ({email, pass, actions}) => {
 	}
 	return user
 }
-
+export const handleGoogleAuth = () => {
+	const auth = getAuth()
+	const provider = new GoogleAuthProvider()
+	
+}
 
