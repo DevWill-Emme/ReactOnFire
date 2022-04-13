@@ -22,6 +22,7 @@
     "eject": "react-scripts eject",
     "serve": "serve -s build",
     "deploy": "firebase deploy",
+    "host": "firebase serve",
     "firebase": "firebase emulators:start"
   },
   "eslintConfig": {

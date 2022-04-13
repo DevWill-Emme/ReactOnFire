@@ -3,23 +3,21 @@ import {
 	getAuth,
 	GoogleAuthProvider,
 	signInWithEmailAndPassword,
-	signInWithPopup
+	signInWithPopup,
 } from 'firebase/auth'
 
 export const handleAuth = async ({email, pass, actions}) => {
 	const auth = getAuth()
-	let user;
 	
 	if (actions === 'createUser') {
-		user = await createUserWithEmailAndPassword(auth, email, pass)
-		.then(credUser => {
-			return credUser
+		return await createUserWithEmailAndPassword(auth, email, pass)
+		.then(credential => {
+			return credential
 		}).catch((error) => {
-			console.log(error.code);
-			console.log(error.message);
+			console.log(error.code, error.message);
 		});
 	} else {
-		user = await signInWithEmailAndPassword(auth, email, pass)
+		return await signInWithEmailAndPassword(auth, email, pass)
 		.then(res => {
 			return res
 		}).catch((error) => {
@@ -27,7 +25,6 @@ export const handleAuth = async ({email, pass, actions}) => {
 			console.log(error.message);
 		});
 	}
-	return user
 }
 export const handleGoogleAuth = async () => {
 	const auth = getAuth()
@@ -38,10 +35,9 @@ export const handleGoogleAuth = async () => {
 	.then((result) => {
 		const credential = GoogleAuthProvider.credentialFromResult(result);
 		const token = credential.accessToken;
-		const user = result.user;
-		console.log(token, "   ", user)
-		
-		return [token, user]
+		return [token]
+	}).catch((error) => {
+		console.log(error.code, " ", error.message, " ", error.email, " ", GoogleAuthProvider.credentialFromError(error))
 	})
 }
 
