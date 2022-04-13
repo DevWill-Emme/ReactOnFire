@@ -28,7 +28,7 @@ export default function SForm({
 		                              dataToSubmit: {}
 	                              },
 	                              inputID = '',
-	                              redirectionTo = '/'
+											redirectionTo = '/'
                               }) {
 	const [validated, setValidated] = useState(false);
 	const redirect = useNavigate()

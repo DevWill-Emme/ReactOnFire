@@ -1,9 +1,9 @@
-import {Container, Row} from "react-bootstrap";
+import {Button, Container, Row} from "react-bootstrap";
 import {useState} from "react";
 import {Link} from "react-router-dom";
 
 import SForm from "../../components/SignForm";
-import {handleAuth} from "../../actions/hendleAuth";
+import {handleAuth, handleGoogleAuth} from "../../actions/hendleAuth";
 
 
 function Login() {
@@ -43,11 +43,15 @@ function Login() {
 					renderControl={formRender}
 					actionSubmit={handleSubmit}
 					inputID={'login'}>
-					<div className={"d-flex justify-content-center"}>
+					<div className={"d-flex justify-content-center p-3"}>
 						<Link
 							to={'reset_password'}
 							className={'nav-link'}
-						>Forget password?? click here!!</Link>
+						>Forget password??</Link>
+						<Button
+							variant={"outline-primary"}
+							onClick={handleGoogleAuth}
+						>SignUp with Google</Button>
 					</div>
 				</SForm>
 			</Row>
