@@ -15,11 +15,15 @@ function handleResetPassword(auth, actionCode, continueUrl) {
 
 //handle data in the url
 function getParameterByName(name) {
-
+    const URL_data = window.location.href.split("?")[1].split('&');
+    for (let i = 0; i < URL_data.length; i++) {
+        if (URL_data[i].split("=")[0] === name) {
+            return URL_data[i].split("=")[1]
+        }
+    }
 }
 
 export default function Test() {
-
     useEffect(() => {
         const auth = getAuth()
         const mode = getParameterByName('mode');
