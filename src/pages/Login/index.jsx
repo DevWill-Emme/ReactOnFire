@@ -1,7 +1,10 @@
 import {Container, Row} from "react-bootstrap";
-import SForm from "../../components/SignForm";
 import {useState} from "react";
+import {Link} from "react-router-dom";
+
+import SForm from "../../components/SignForm";
 import {handleAuth} from "../../actions/hendleAuth";
+
 
 function Login() {
 	const [email, setEmail] = useState(false)
@@ -32,7 +35,7 @@ function Login() {
 	]
 
 	return (
-		<Container fluid className="d-flex justify-content-center position-relative top-50">
+		<Container fluid className="d-flex justify-content-center">
 			<Row style={{width: "35rem"}}>
 				<SForm
 					title={"Sign In"}
@@ -41,10 +44,10 @@ function Login() {
 					actionSubmit={handleSubmit}
 					inputID={'login'}>
 					<div className={"d-flex justify-content-center"}>
-						<label
+						<Link
+							to={'reset_password'}
 							className={'nav-link'}
-							onClick={}
-						>Forget password?? click here!!</label>
+						>Forget password?? click here!!</Link>
 					</div>
 				</SForm>
 			</Row>

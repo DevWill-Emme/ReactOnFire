@@ -19,7 +19,7 @@ let center = "d-flex justify-content-center"
 
 export default function SForm({
 	                              children,
-	                              title = "hello",
+	                              title,
 	                              renderControl = [initialControl],
 	                              btnValue = "Submit",
 	                              actionSubmit = {
@@ -28,7 +28,7 @@ export default function SForm({
 		                              dataToSubmit: {}
 	                              },
 	                              inputID = '',
-											redirectionTo = '/'
+	                              redirectionTo = '/'
                               }) {
 	const [validated, setValidated] = useState(false);
 	const redirect = useNavigate()

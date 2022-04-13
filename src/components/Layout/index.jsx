@@ -30,7 +30,7 @@ export default function Layout({children}) {
 				</Navbar>
 			</Row>
 			<Row>
-				<Col>{children}</Col>
+				<Col className={"position-fixed top-50 translate-middle-y"}>{children}</Col>
 			</Row>
 		</Container>
 	)
