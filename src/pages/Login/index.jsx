@@ -39,7 +39,14 @@ function Login() {
 					btnValue={"SignIn"}
 					renderControl={formRender}
 					actionSubmit={handleSubmit}
-					inputID={'login'}/>
+					inputID={'login'}>
+					<div className={"d-flex justify-content-center"}>
+						<label
+							className={'nav-link'}
+							onClick={}
+						>Forget password?? click here!!</label>
+					</div>
+				</SForm>
 			</Row>
 		</Container>
 	);

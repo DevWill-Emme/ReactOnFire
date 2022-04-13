@@ -2,6 +2,7 @@ import {
 	createUserWithEmailAndPassword,
 	getAuth,
 	GoogleAuthProvider,
+	sendPasswordResetEmail,
 	signInWithEmailAndPassword,
 	signInWithPopup,
 } from 'firebase/auth'
@@ -40,4 +41,16 @@ export const handleGoogleAuth = async () => {
 		console.log(error.code, " ", error.message, " ", error.email, " ", GoogleAuthProvider.credentialFromError(error))
 	})
 }
+export const handleResetPasswordEmail = async (email) => {
+	const auth = getAuth();
+	sendPasswordResetEmail(auth, email)
+	.then()
+	.catch((error) => {
+		console.log(error.code, error.message)
+		// ..
+	});
+}
+
+
+
 
