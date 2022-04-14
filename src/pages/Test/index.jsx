@@ -93,7 +93,7 @@ export default function Test() {
                                    style={{borderRadius: "1.5rem"}}>
                             <Row>
                                 <Link to={'/login'} className={'btn btn-outline-success m-3'}>
-                                    musteliergarridojaver@gamil.com: your password has been reset successfully
+                                    {email}: your password has been reset successfully
                                 </Link>
                             </Row>
                         </Container>
