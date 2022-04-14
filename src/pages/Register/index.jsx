@@ -32,8 +32,8 @@ function SignUp() {
 	]
 
 	return (
-		<Container fluid className="d-flex justify-content-center position-relative top-50">
-			<Row style={{width: "35rem"}}>
+		<Container fluid className="d-flex justify-content-center h-100">
+			<Row style={{width: "35rem", alignItems: 'center'}}>
 				<SForm
 					title={"Sign Up"}
 					btnValue={"SignUp"}

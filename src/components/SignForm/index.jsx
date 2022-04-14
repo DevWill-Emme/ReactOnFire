@@ -93,7 +93,7 @@ export default function SForm({
 
 	return (
 		<>
-			<Card className={`p-4 shadow ${center}`} style={{borderRadius: "1.5rem"}}>
+			<Card className={`p-4 shadow ${center}`} style={{borderRadius: "1.5rem", height: "fit-content"}}>
 				<Row className={center}>
 					<h1 className={"w-auto"}>{title}</h1>
 				</Row>

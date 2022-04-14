@@ -85,8 +85,8 @@ export default function Test() {
             {
                 // TODO: this is the view of reset password
             }
-            <Container fluid id={"restPassword"} className={'d-flex justify-content-center d-none'}>
-                <Row style={{width: "35rem"}}>
+            <Container fluid className="d-flex justify-content-center h-100 d-none">
+                <Row style={{width: "35rem", alignItems: 'center'}}>
                     {(check)
                         ?// TODO redirect to login page
                         <Container className={`p-4 shadow d-flex justify-content-center`}
@@ -108,8 +108,8 @@ export default function Test() {
             {
                 // TODO: and this is the one to verify email
             }
-            <Container fluid id={"verifyEmail"} className={'d-flex justify-content-center d-none'}>
-                <Row style={{width: "35rem"}}>
+            <Container fluid className="d-flex justify-content-center h-100 d-none">
+                <Row style={{width: "35rem", alignItems: 'center'}}>
                     <h2>You email have been verify, thanks!!</h2>
                     <Link to={'/'} className={'b'}>Go Back</Link>
                 </Row>

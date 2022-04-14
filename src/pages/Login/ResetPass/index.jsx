@@ -23,8 +23,8 @@ export default function ResetPass() {
 	]
 	
 	return (
-		<Container fluid className={'d-flex justify-content-center '}>
-			<Row style={{width: "35rem"}}>
+		<Container fluid className="d-flex justify-content-center h-100">
+			<Row style={{width: "35rem", alignItems: 'center'}}>
 				<SForm
 					btnValue={"Send Email"}
 					renderControl={formRender}
