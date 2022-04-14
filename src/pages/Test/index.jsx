@@ -91,10 +91,11 @@ export default function Test() {
                         ?// TODO redirect to login page
                         <Container className={`p-4 shadow d-flex justify-content-center`}
                                    style={{borderRadius: "1.5rem"}}>
-                            <h2>
-                                {email}: your password has been reset successfully
-                            </h2>
-                            <Link to={'/login'} className={'btn'}>Go to Login page</Link>
+                            <Row>
+                                <Link to={'/login'} className={'btn btn-outline-success m-3'}>
+                                    musteliergarridojaver@gamil.com: your password has been reset successfully
+                                </Link>
+                            </Row>
                         </Container>
                         ://TODO enter new password
                         <SForm
@@ -110,7 +111,7 @@ export default function Test() {
             <Container fluid id={"verifyEmail"} className={'d-flex justify-content-center d-none'}>
                 <Row style={{width: "35rem"}}>
                     <h2>You email have been verify, thanks!!</h2>
-                    <Link to={'/'} className={'btn'}>Go Back</Link>
+                    <Link to={'/'} className={'b'}>Go Back</Link>
                 </Row>
             </Container>
         </>

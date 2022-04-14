@@ -1,3 +1,11 @@
+.header {
+    height: 50% !important;
+}
+
+.body {
+    height: 50% !important;
+}
+
 .log {
     display: none;
 }

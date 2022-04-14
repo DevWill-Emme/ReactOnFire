@@ -4,8 +4,8 @@ import './style.css'
 
 export default function Layout({children}) {
 	return (
-		<Container fluid>
-			<Row>
+		<Container fluid id={"layoutContainer"}>
+			<Row className={'header'}>
 				<Navbar collapseOnSelect expand="md" bg="dark" variant="dark" className="position-sticky top-0">
 					<Container>
 						<Navbar.Brand>ReactOnFire</Navbar.Brand>
@@ -29,8 +29,8 @@ export default function Layout({children}) {
 					</Container>
 				</Navbar>
 			</Row>
-			<Row>
-				<Col className={"position-fixed top-50 translate-middle-y"}>{children}</Col>
+			<Row className={"body"}>
+				<Col className={''} style={{height: "1rem"}}>{children}</Col>
 			</Row>
 		</Container>
 	)
