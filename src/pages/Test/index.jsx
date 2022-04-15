@@ -9,6 +9,7 @@ import {Link} from "react-router-dom";
 
 export default function Test() {
     const auth = getAuth()
+    const mode = getParameterByName('mode');
     const [actionCode, setActionCode] = useState(false)
     const [pass, setPass] = useState(false)
     const [email, setEmail] = useState(false)
@@ -19,11 +20,9 @@ export default function Test() {
     async function handleResetPassword({actionCode, pass}) {
         verifyPasswordResetCode(auth, actionCode).then((userEmail) => {
             setEmail(userEmail);
-            console.log("verifyPASS_Reset", userEmail)
-            confirmPasswordReset(auth, actionCode, pass).then((resp) => {
-                console.log("confirmPASS_Reset", resp)
+            confirmPasswordReset(auth, actionCode, pass).then(
                 setCheck(true)
-            }).catch((error) => {
+            ).catch((error) => {
                 // Error occurred during confirmation. The code might have expired or the
                 // password is too weak.
                 console.log(error)
@@ -58,7 +57,7 @@ export default function Test() {
 
 
     useEffect(() => {
-        const mode = getParameterByName('mode');
+
         setActionCode(getParameterByName('oobCode'))
 
         // Handle the user management action.
@@ -85,7 +84,7 @@ export default function Test() {
             {
                 // TODO: this is the view of reset password
             }
-            <Container fluid className="d-flex justify-content-center h-100 d-none">
+            <Container fluid id={"restPassword"} className="d-flex justify-content-center h-100">
                 <Row style={{width: "35rem", alignItems: 'center'}}>
                     {(check)
                         ?// TODO redirect to login page
@@ -108,10 +107,10 @@ export default function Test() {
             {
                 // TODO: and this is the one to verify email
             }
-            <Container fluid className="d-flex justify-content-center h-100 d-none">
+            <Container fluid id={"verifyEmail"} className={'d-flex justify-content-center h-100 d-none'}>
                 <Row style={{width: "35rem", alignItems: 'center'}}>
                     <h2>You email have been verify, thanks!!</h2>
-                    <Link to={'/'} className={'b'}>Go Back</Link>
+                    <Link to={'/'} className={'btn-outline-success'}>Go Back</Link>
                 </Row>
             </Container>
         </>

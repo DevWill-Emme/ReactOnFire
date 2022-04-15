@@ -31,10 +31,14 @@ export const handleValidateInput = element => {
 }
 
 export function getParameterByName(name) {
-	const URL_data = window.location.href.split("?")[1].split('&');
-	for (let i = 0; i < URL_data.length; i++) {
-		if (URL_data[i].split("=")[0] === name) {
-			return URL_data[i].split("=")[1]
+	if (window.location.href.split("?")[1]) {
+		const URL_data = window.location.href.split("?")[1].split('&');
+		for (let i = 0; i < URL_data.length; i++) {
+			if (URL_data[i].split("=")[0] === name) {
+				return URL_data[i].split("=")[1]
+			}
 		}
+	} else {
+		return false
 	}
 }
