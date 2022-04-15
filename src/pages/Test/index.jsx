@@ -11,6 +11,7 @@ export default function Test() {
     const auth = getAuth()
     const mode = getParameterByName('mode');
     const [actionCode, setActionCode] = useState(false)
+    setActionCode(getParameterByName('oobCode'))
     const [pass, setPass] = useState(false)
     const [email, setEmail] = useState(false)
     const [check, setCheck] = useState(false)
@@ -57,9 +58,6 @@ export default function Test() {
 
 
     useEffect(() => {
-
-        setActionCode(getParameterByName('oobCode'))
-
         // Handle the user management action.
         let view;
         switch (mode) {
