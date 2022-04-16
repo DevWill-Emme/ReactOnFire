@@ -14,7 +14,8 @@ export const handleAuth = async ({email, pass, actions}) => {
 	if (actions === 'createUser') {
 		return await createUserWithEmailAndPassword(auth, email, pass)
 			.then(userCred => {
-				dbAdd("users", {
+				console.log(userCred)
+				return dbAdd("users", {
 					email: userCred.email,
 				}, userCred.uid)
 			}).catch((error) => {
@@ -38,10 +39,12 @@ export const handleGoogleAuth = async () => {
 	return await signInWithPopup(auth, provider)
 	.then((result) => {
 		const credential = GoogleAuthProvider.credentialFromResult(result);
-		const token = credential.accessToken;
-		return [token]
+		console.log(result, credential)
+		return dbAdd("users", {
+			email: credential.email
+		}, credential.uid)
 	}).catch((error) => {
-		console.log(error.code, " ", error.message, " ", error.email, " ", GoogleAuthProvider.credentialFromError(error))
+		console.log(error.message, GoogleAuthProvider.credentialFromError(error))
 	})
 }
 export const handleResetPasswordEmail = async ({email}) => {
