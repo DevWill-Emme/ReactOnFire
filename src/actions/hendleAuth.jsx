@@ -8,19 +8,28 @@ import {
 } from 'firebase/auth'
 import {dbAdd} from "./handleS";
 
+import {initializeApp} from "firebase/app";
+import fireConfig from "../firebase-config";
+
+initializeApp(fireConfig)
+const auth = getAuth()
+
 export const handleAuth = async ({email, pass, actions}) => {
-	const auth = getAuth()
-	
+
 	if (actions === 'createUser') {
 		return await createUserWithEmailAndPassword(auth, email, pass)
-			.then(userCred => {
-				console.log(userCred)
-				return dbAdd("users", {
-					email: userCred.email,
-				}, userCred.uid)
-			}).catch((error) => {
-				console.log(error.code, error.message);
-			});
+		.then(userCred => {
+			return dbAdd("users", {
+				email: userCred.user.email,
+				gateways: {}
+			}, userCred.user.uid)
+			.catch(err => {
+				console.log(err.message)
+			})
+		})
+		.catch((error) => {
+			console.log(error.code, error.message);
+		});
 	} else {
 		return await signInWithEmailAndPassword(auth, email, pass)
 		.then(res => {
@@ -35,15 +44,15 @@ export const handleGoogleAuth = async () => {
 	const auth = getAuth()
 	auth.useDeviceLanguage()
 	const provider = new GoogleAuthProvider()
-	
+
 	return await signInWithPopup(auth, provider)
-	.then((result) => {
-		const credential = GoogleAuthProvider.credentialFromResult(result);
-		console.log(result, credential)
+	.then((cred) => {
 		return dbAdd("users", {
-			email: credential.email
-		}, credential.uid)
-	}).catch((error) => {
+			email: cred.user.email,
+			gateways: {}
+		}, cred.user.uid)
+	})
+	.catch((error) => {
 		console.log(error.message, GoogleAuthProvider.credentialFromError(error))
 	})
 }

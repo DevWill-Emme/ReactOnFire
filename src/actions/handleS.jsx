@@ -1,12 +1,13 @@
-import firebase from "../firebase-config"
+import {initializeApp} from "firebase/app";
+import fireConfig from "../firebase-config";
 import {addDoc, collection, doc, getFirestore, setDoc} from "firebase/firestore"
 
-const db = getFirestore(firebase)
+const db = getFirestore(initializeApp(fireConfig))
 
 export const dbAdd = async (collections,
                             dataToAdd = {},
-                            id) => {
-    if (id) {
+                            id = false) => {
+    if (id !== false) {
         return await setDoc(doc(db, collections, id), dataToAdd)
         .then(() => console.log("success to add"))
         .catch(err => console.log(err.message))
@@ -17,6 +18,6 @@ export const dbAdd = async (collections,
     }
 }
 
-export const setupContent = () => {
+export const setupContent = (gateway, periphericos) => {
 
 }
