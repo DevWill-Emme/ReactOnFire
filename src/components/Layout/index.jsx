@@ -2,6 +2,7 @@ import {Col, Container, Nav, Navbar, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import './style.css'
 
+
 export default function Layout({children}) {
 	return (
 		<Container fluid id={"layoutContainer"}>

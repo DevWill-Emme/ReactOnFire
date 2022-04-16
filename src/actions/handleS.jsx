@@ -8,11 +8,15 @@ export const dbAdd = async (collections,
                             id) => {
     if (id) {
         return await setDoc(doc(db, collections, id), dataToAdd)
-            .then(() => console.log("success to add"))
-            .catch(err => console.log(err.message))
+        .then(() => console.log("success to add"))
+        .catch(err => console.log(err.message))
     } else {
         return await addDoc(collection(db, collections), dataToAdd)
-            .then(() => console.log("success to add"))
-            .catch(err => console.log(err.message))
+        .then(() => console.log("success to add"))
+        .catch(err => console.log(err.message))
     }
+}
+
+export const setupContent = () => {
+
 }
