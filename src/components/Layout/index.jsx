@@ -1,4 +1,4 @@
-import {Col, Container, Nav, Navbar, NavDropdown, Row} from "react-bootstrap";
+import {Col, Container, Nav, Navbar, Row} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import './style.css'
 
@@ -12,13 +12,12 @@ export default function Layout({children}) {
 						<Navbar.Toggle aria-controls="responsive-navbar-nav"/>
 						<Navbar.Collapse id="responsive-navbar-nav">
 							<Nav className="me-auto">
-								<Nav.Link as={Link} to={'/test'}>TestComponents</Nav.Link>
-								<Nav.Link className={'log in'} as={Link} to={'/'}>Pricing</Nav.Link>
-								<NavDropdown className={'log Out'} title="Dropdown" id="collasible-nav-dropdown">
+								<Nav.Link className={'log in'} as={Link} to={'/'}>Home</Nav.Link>
+								{/*<NavDropdown className={'log Out'} title="Dropdown" id="collasible-nav-dropdown">
 									<NavDropdown.Item as={Link} to={'/'}>Action</NavDropdown.Item>
 									<NavDropdown.Item as={Link} to={'/'}>Another action</NavDropdown.Item>
 									<NavDropdown.Item as={Link} to={'/'}>Something</NavDropdown.Item>
-								</NavDropdown>
+								</NavDropdown>*/}
 							</Nav>
 							<Nav>
 								<Nav.Link className={'log in'} as={Link} id={'logOut'} to={'/'}>Log Out</Nav.Link>

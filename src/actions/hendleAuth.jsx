@@ -6,17 +6,20 @@ import {
 	signInWithEmailAndPassword,
 	signInWithPopup,
 } from 'firebase/auth'
+import {dbAdd} from "./handleS";
 
 export const handleAuth = async ({email, pass, actions}) => {
 	const auth = getAuth()
 	
 	if (actions === 'createUser') {
 		return await createUserWithEmailAndPassword(auth, email, pass)
-		.then(credential => {
-			return credential
-		}).catch((error) => {
-			console.log(error.code, error.message);
-		});
+			.then(userCred => {
+				dbAdd("users", {
+					email: userCred.email,
+				}, userCred.uid)
+			}).catch((error) => {
+				console.log(error.code, error.message);
+			});
 	} else {
 		return await signInWithEmailAndPassword(auth, email, pass)
 		.then(res => {
